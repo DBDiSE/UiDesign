@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material" xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="UiDesign.TestPage">
+
+    <ContentPage.Content>
+
+        <Grid Margin="16,16,16,16">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+
+            <Picker Title="Wybierz przedział:" x:Name="periodPicker" TextColor="#FFFFFF" Grid.Row="0"  HorizontalTextAlignment="Center" WidthRequest="150" VerticalOptions="Fill" HorizontalOptions="Center" TitleColor="#FFFFFF" ItemsSource="{Binding pickerItem}">
+                
+            </Picker>
+
+            <ListView ItemsSource="{Binding aChatters}" Grid.Row="1"
+          HasUnevenRows="true"
+          ItemTapped="OnListViewItemTapped" SeparatorColor="#85008E">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="60" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
+                           Source="{Binding ImageUrl}"
+                           Aspect="AspectFill"
+                           HeightRequest="60"
+                           WidthRequest="60" />
+                                <Label Grid.Column="1"
+                           Text="{Binding title}"
+                           FontAttributes="Bold" TextColor="#FFFFFF" />
+                                <Label Grid.Row="1"
+                           Grid.Column="1" TextColor="#FFFFFF"
+                           Text="{Binding Views}"
+                           VerticalOptions="End" />
+                                <Switch IsToggled="{Binding Selected}" Grid.RowSpan="2"
+                                   Grid.Column="2"
+                           HeightRequest="60"
+                           WidthRequest="60" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <material:MaterialButton Text="Pobierz wybrane klipy" Clicked="MaterialButton_Clicked_Selected" Grid.Row="2" BackgroundColor="#00000000" BorderColor="#7508CF" BorderWidth="3" CornerRadius="30" HeightRequest="50" FontAttributes="Bold" TextColor="#FFFFFF" />
+
+            <material:MaterialButton Text="Pobierz wszystkie klipy" Clicked="MaterialButton_Clicked_All" Grid.Row="3" BackgroundColor="#00000000" BorderColor="#7508CF" BorderWidth="3" CornerRadius="30" HeightRequest="50" FontAttributes="Bold" TextColor="#FFFFFF" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
