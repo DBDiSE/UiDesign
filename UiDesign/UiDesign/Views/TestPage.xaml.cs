@@ -98,13 +98,13 @@ namespace UiDesign
 
         private async void MaterialButton_Clicked_All(object sender, EventArgs e)
         {
-            Acr.UserDialogs.UserDialogs.Instance.Toast("Rozpoczęto pobieranie wszystkich klipów...", TimeSpan.FromSeconds(4.0));
+            Acr.UserDialogs.UserDialogs.Instance.Toast("Rozpoczęto pobieranie wszystkich klipów.", TimeSpan.FromSeconds(4.0));
             await ClipDownloaderAsync(true);
         }
 
         private async void MaterialButton_Clicked_Selected(object sender, EventArgs e)
         {
-            Acr.UserDialogs.UserDialogs.Instance.Toast("Rozpoczęto pobieranie wybranych klipów...", TimeSpan.FromSeconds(4.0));
+            Acr.UserDialogs.UserDialogs.Instance.Toast("Rozpoczęto pobieranie wybranych klipów.", TimeSpan.FromSeconds(4.0));
             await ClipDownloaderAsync(false);
         }
 

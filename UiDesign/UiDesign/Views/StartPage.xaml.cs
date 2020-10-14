@@ -13,9 +13,9 @@ namespace UiDesign.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StartPage : ContentPage
     {
-        private static TwitchAPI api;
+ 
         private TwitchClass twitchClass = new TwitchClass();
-        private string lastquery;
+ 
 
         public StartPage()
         {
